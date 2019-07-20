@@ -1,7 +1,7 @@
 class Github {
   constructor() {
-    this.client_id = 'client_id_goes_here';
-    this.client_secret = 'insert_client_Secret_here';
+    this.client_id = 'e35a7452a66ed93d3c95';
+    this.client_secret = '91f7424a24956342c553de55e32d3a4540e59d6d';
     this.repos_count = 5;
     this.repos_sort = 'created: asc';
   }
@@ -25,8 +25,8 @@ class Github {
     const repos = await repoResponse.json();
 
     return {
-      profile,
-      repos
+      profile: profile,
+      repos: repos
     };
   }
 }

@@ -1,30 +1,34 @@
 class UI {
-
-  constructor(){
+  constructor() {
     this.profile = document.getElementById('profile');
   }
 
-  showProfile(user){
-
+  showProfile(user) {
     this.profile.innerHTML = `
     <div class="card card-body mb-3">
       <div class = "row">
         <div class="col-md-3">
 
           <img class="img-fluid mb-2" src="${user.avatar_url}">
-          <a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
+          <a href="${
+            user.html_url
+          }" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
         
         </div>
         <div class="col-md-9">
-          <span class="badge badge-primary">Public Repos: ${ user.public_repos }</span>
-          <span class="badge badge-secondary">Public Gists: ${ user.public_gists }</span>
-          <span class="badge badge-success">Followers: ${ user.followers }</span>
-          <span class="badge badge-info">Following: ${ user.following }</span>
+          <span class="badge badge-primary">Public Repos: ${
+            user.public_repos
+          }</span>
+          <span class="badge badge-secondary">Public Gists: ${
+            user.public_gists
+          }</span>
+          <span class="badge badge-success">Followers: ${user.followers}</span>
+          <span class="badge badge-info">Following: ${user.following}</span>
           <ul class="list-group">
-            <li class="list-group-item">Company: ${ user.company } </li>
-            <li class="list-group-item">Website/Blog: ${ user.blog } </li>
-            <li class="list-group-item">Location: ${ user.location } </li>
-            <li class="list-group-item">Member Since: ${ user.created_at } </li>
+            <li class="list-group-item">Company: ${user.company} </li>
+            <li class="list-group-item">Website/Blog: ${user.blog} </li>
+            <li class="list-group-item">Location: ${user.location} </li>
+            <li class="list-group-item">Member Since: ${user.created_at} </li>
           </ul>
         </div>
       </div>
@@ -37,11 +41,10 @@ class UI {
 
   //show user repos
 
-  showRepos(repos){
+  showRepos(repos) {
+    let output = '';
 
-    let output  = '';
-
-    repos.forEach(function(repo){
+    repos.forEach(function(repo) {
       output += `
       <div class="card card-body mb-2">
 
@@ -53,11 +56,12 @@ class UI {
       </div>
 
       <div class="col-md-6">
-       <span class="badge badge-primary">Stars: ${ repo.stargazers_count }</span>
-       <span class="badge badge-secondary">Watchers: ${ repo.watchers_count }</span>
-       <span class="badge badge-success">Forks: ${ repo.forks_count }</span>
-
-
+       <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
+       <span class="badge badge-secondary">Watchers: ${
+         repo.watchers_count
+       }</span>
+       <span class="badge badge-success">Forks: ${repo.forks_count}</span>
+       
       </div>
       
       </div>
@@ -73,7 +77,7 @@ class UI {
   }
 
   //show alert message
-  showAlert(message, className){
+  showAlert(message, className) {
     //clear remaining alerts
     this.clearAlert();
 
@@ -85,10 +89,8 @@ class UI {
     //add text
     div.appendChild(document.createTextNode(message));
 
-   
-
     //Get parent to insert
-    const container =  document.querySelector('.searchContainer');
+    const container = document.querySelector('.searchContainer');
 
     //get search box
     const search = document.querySelector('.search');
@@ -100,23 +102,20 @@ class UI {
     setTimeout(() => {
       this.clearAlert();
     }, 3000);
-
-
-  } 
+  }
   //clear  alert
 
-  clearAlert(){
-
+  clearAlert() {
     const currentAlert = document.querySelector('.alert');
 
-    if(currentAlert){
+    if (currentAlert) {
       currentAlert.remove();
     }
   }
 
   //clear profiles
 
-  clearProfile(){
+  clearProfile() {
     this.profile.innerHTML = '';
   }
 }
